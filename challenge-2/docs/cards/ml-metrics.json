@@ -1,0 +1,11 @@
+{
+  "_comment": "This JSON file containing the ml-metrics",
+  "Name": "Neeraj Jaiswal",
+  "Kaggle Username": "neerajjaiswalai",
+  "Team Name": "The Revengers",
+  "f1 scores": {
+    "_comment": "Here are the class wise f1 scores",
+    "normal": "0.95",
+    "anomaly": "0.0"
+  }
+}

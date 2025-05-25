@@ -1,0 +1,44 @@
+SOIL CLASSIFICATION KAGGLE COMPETITION - SOLUTION TRANSCRIPT
+
+TEAM INFORMATION
+--------------------------
+Team Name: The Revengers
+Team Members: Neeraj Jaiswal, Karanbir Singh, Komal Dadwal, Jatin Mahey, Sonu Choubey
+
+APPROACH TO SOLVING THE PROBLEM
+--------------------------
+Our team approached the soil classification competition with a focus on feature extraction and model optimization. We tackled two distinct challenges:
+
+Challenge 1: Soil Type Classification
+We focused on extracting the most relevant features from soil images to classify them into different soil types (Alluvial soil, Black Soil, Clay soil, Red Soil). Initially, we explored deep learning approaches but later refined our methodology to focus on color and texture features, which proved more effective for this specific task.
+
+Challenge 2: Soil Anomaly Detection
+For the anomaly detection task, we implemented a one-class classification approach using deep features extracted from a pre-trained network combined with a one-class SVM. This allowed us to effectively identify non-soil or anomalous soil samples without having explicit examples of the anomaly class during training.
+
+CHALLENGES FACED
+--------------------------
+Challenge 1:
+The initial challenge we faced was that we used VGG-19 and EfficientNet for the classification of soil types, but these models didn't give us good F1 scores and were predicting soil types incorrectly. The complex deep learning models couldn't extract features efficiently for this specific task, despite their success in general image classification problems.
+
+Challenge 2:
+The primary challenge in the anomaly detection task was that we initially used CNN models like VGG-19 and MobileNet, but they couldn't provide good performance in single-class classification (determining whether an image contains soil or not). This was particularly difficult because the training dataset for challenge 2 only contained one true class (soil). We didn't have any non-soil images to train on, making it hard to build a traditional binary classifier.
+
+HOW WE OVERCAME THESE CHALLENGES
+--------------------------
+Challenge 1:
+After identifying the limitations of deep learning approaches for this specific task, we pivoted to a solution using the most prominent features - RGB color values and texture descriptions of soil. We extracted these key features and trained a Random Forest model, which performed exceptionally well on the soil type classification task. This more targeted approach allowed us to focus on the features that most effectively differentiated between soil types.
+
+Challenge 2:
+For the anomaly detection problem, we implemented a solution using ResNet50 to extract deep features, followed by a One-Class SVM classifier. This approach was ideal because we only had examples of the normal class (soil) for training. The One-Class SVM learns the boundary of normal data and can identify outliers without requiring examples of the anomaly class during training. We discovered these approaches through extensive research paper readings via Google Scholar, which helped us identify the most effective techniques for these specific challenges.
+
+FINAL OBSERVATIONS AND LEADERBOARD SCORES
+--------------------------
+Challenge 1: Soil Type Classification
+- Final Rank: 27
+- Observations: Our Random Forest approach using RGB color values and texture features demonstrated strong performance across all soil types. The model showed particular strength in distinguishing between visually similar soil types, confirming that our feature engineering approach was more effective than deep learning for this specific task.
+
+Challenge 2: Soil Anomaly Detection
+- Final Rank: 16
+- Observations: The combination of ResNet50 feature extraction and One-Class SVM proved highly effective for anomaly detection, even without examples of anomalous data during training. This approach allowed us to establish a well-defined boundary for normal soil samples and accurately identify outliers, resulting in a higher leaderboard position for this challenge.
+
+Overall, our experience in this competition highlighted the importance of selecting the right approach for the specific problem rather than defaulting to the most complex or advanced models. Sometimes simpler, more targeted methods can outperform sophisticated deep learning approaches when properly aligned with the nature of the data and the task at hand.

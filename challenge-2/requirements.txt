@@ -1,0 +1,11 @@
+python
+kaggle
+scikit-learn
+pandas
+numpy
+matplotlib
+cv2
+PIL
+joblib
+tensorflow
+warnings
